@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 20% 98%;
+    --foreground: 240 10% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+    --primary: 260 60% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 70% 72%;
+    --secondary-foreground: 240 10% 15%;
+    --muted: 240 15% 93%;
+    --muted-foreground: 240 8% 50%;
+    --accent: 20 85% 72%;
+    --accent-foreground: 240 10% 15%;
+    --destructive: 0 60% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 12% 90%;
+    --input: 240 12% 90%;
+    --ring: 260 60% 65%;
+    --radius: 0.875rem;
+    --success: 155 55% 55%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 80% 60%;
+    --warning-foreground: 240 10% 15%;
+    --lilac: 260 60% 65%;
+    --sky: 200 70% 72%;
+    --mint: 155 55% 55%;
+    --peach: 20 85% 72%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 8% 40%;
+    --sidebar-primary: 260 60% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 40% 96%;
+    --sidebar-accent-foreground: 240 10% 15%;
+    --sidebar-border: 240 12% 92%;
+    --sidebar-ring: 260 60% 65%;
+  }
+
+  .dark {
+    --background: 240 15% 10%;
+    --foreground: 240 10% 90%;
+    --card: 240 15% 13%;
+    --card-foreground: 240 10% 90%;
+    --popover: 240 15% 13%;
+    --popover-foreground: 240 10% 90%;
+    --primary: 260 60% 70%;
+    --primary-foreground: 240 15% 10%;
+    --secondary: 200 60% 65%;
+    --secondary-foreground: 240 10% 90%;
+    --muted: 240 12% 18%;
+    --muted-foreground: 240 8% 55%;
+    --accent: 20 80% 70%;
+    --accent-foreground: 240 10% 10%;
+    --destructive: 0 55% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 12% 20%;
+    --input: 240 12% 20%;
+    --ring: 260 60% 70%;
+    --success: 155 50% 50%;
+    --success-foreground: 240 15% 10%;
+    --warning: 38 75% 55%;
+    --warning-foreground: 240 10% 10%;
+    --lilac: 260 60% 70%;
+    --sky: 200 60% 65%;
+    --mint: 155 50% 50%;
+    --peach: 20 80% 70%;
+    --sidebar-background: 240 15% 12%;
+    --sidebar-foreground: 240 8% 65%;
+    --sidebar-primary: 260 60% 70%;
+    --sidebar-primary-foreground: 240 15% 10%;
+    --sidebar-accent: 240 12% 16%;
+    --sidebar-accent-foreground: 240 10% 90%;
+    --sidebar-border: 240 12% 18%;
+    --sidebar-ring: 260 60% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .soft-shadow {
+    box-shadow: 0 4px 24px hsl(260 60% 65% / 0.08), 0 1px 4px hsl(0 0% 0% / 0.04);
+  }
+  .soft-shadow-lg {
+    box-shadow: 0 8px 40px hsl(260 60% 65% / 0.12), 0 2px 8px hsl(0 0% 0% / 0.04);
+  }
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent via-primary to-secondary;
+  }
+  .gradient-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, hsl(var(--lilac) / 0.4), hsl(var(--sky) / 0.4), hsl(var(--peach) / 0.4));
+    z-index: -1;
+  }
+  .pastel-card {
+    @apply bg-card rounded-2xl border border-border/60 soft-shadow;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
